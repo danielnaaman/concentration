@@ -13,110 +13,71 @@ namespace Concentration
 {
     public partial class Form1 : Form
     {
+        public bool IsMatching(Image image1, Image image2)
+        {
+            try
+            {
+                ImageConverter converter = new ImageConverter();
+                byte[] imgBytes1 = new byte[1];
+                byte[] imgBytes2 = new byte[1];
+
+                imgBytes1 = (byte[])converter.ConvertTo(image1, imgBytes2.GetType());
+                imgBytes2 = (byte[])converter.ConvertTo(image2, imgBytes1.GetType());
+
+                System.Security.Cryptography.SHA256Managed sha = new System.Security.Cryptography.SHA256Managed();
+                byte[] imgHash1 = sha.ComputeHash(imgBytes1);
+                byte[] imgHash2 = sha.ComputeHash(imgBytes2);
+
+                for (int i = 0; i < imgHash1.Length && i < imgHash2.Length; i++)
+                {
+                    if (!(imgHash1[i] == imgHash2[i]))
+                        return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+
+            return true;
+        }
+
         public Form1()
         {
             InitializeComponent();
         }
 
-        private bool isBack0 = true;
-        private bool isBack1 = true;
-        private bool isBack2 = true;
-        private bool isBack3 = true;
-        private bool isBack4 = true;
-        private bool isBack5 = true;
-
-        private void card_1_Click(object sender, EventArgs e)
+        private void PictureBox_Click(object sender, EventArgs e)
         {
+            PictureBox pictureBox = sender as PictureBox;
+
+            if (!IsMatching(pictureBox.Image, Resources.shawarma))
             {
-                if (!isBack0)
-                {
-                    card_1.Image = Resources.shawarma;
-                    isBack0 = true;
-                }
-                else
-                {
-                    card_1.Image = Resources.green_banana;
-                    isBack0 = false;
-                }
+                pictureBox.Image = Resources.shawarma;
             }
-        }
-
-        private void card_2_Click(object sender, EventArgs e)
-        {
+            else
             {
-                if (!isBack1)
+                switch (pictureBox.Name)
                 {
-                    card_2.Image = Resources.shawarma;
-                    isBack1 = true;
-                }
-                else
-                {
-                    card_2.Image = Resources.green_banana;
-                    isBack1 = false;
-                }
-            }
-        }
-
-        private void card_3_Click(object sender, EventArgs e)
-        {
-            {
-                if (!isBack2)
-                {
-                    card_3.Image = Resources.shawarma;
-                    isBack2 = true;
-                }
-                else
-                {
-                    card_3.Image = Resources.green_banana;
-                    isBack2 = false;
-                }
-            }
-        }
-
-        private void card_4_Click(object sender, EventArgs e)
-        {
-            {
-                if (!isBack3)
-                {
-                    card_4.Image = Resources.shawarma;
-                    isBack3 = true;
-                }
-                else
-                {
-                    card_4.Image = Resources.green_banana;
-                    isBack3 = false;
-                }
-            }
-        }
-
-        private void card_5_Click(object sender, EventArgs e)
-        {
-            {
-                if (!isBack4)
-                {
-                    card_5.Image = Resources.shawarma;
-                    isBack4 = true;
-                }
-                else
-                {
-                    card_5.Image = Resources.green_banana;
-                    isBack4 = false;
-                }
-            }
-        }
-
-        private void card_6_Click(object sender, EventArgs e)
-        {
-            {
-                if (!isBack5)
-                {
-                    card_6.Image = Resources.shawarma;
-                    isBack5 = true;
-                }
-                else
-                {
-                    card_6.Image = Resources.green_banana;
-                    isBack5 = false;
+                    case "card_1":
+                        pictureBox.Image = Resources.green_banana;
+                        break;
+                    case "card_2":
+                        pictureBox.Image = Resources.green_banana;
+                        break;
+                    case "card_3":
+                        pictureBox.Image = Resources.green_banana;
+                        break;
+                    case "card_4":
+                        pictureBox.Image = Resources.green_banana;
+                        break;
+                    case "card_5":
+                        pictureBox.Image = Resources.green_banana;
+                        break;
+                    case "card_6":
+                        pictureBox.Image = Resources.green_banana;
+                        break;
                 }
             }
         }
