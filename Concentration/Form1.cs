@@ -13,6 +13,13 @@ namespace Concentration
 {
     public partial class Form1 : Form
     {
+        private const int card = 8;
+        private Image[] images = new Image[card];
+
+        private bool isFirst = true;
+        private PictureBox firstPictureBox;
+        private PictureBox secondPictureBox;
+
         public bool IsMatching(Image image1, Image image2)
         {
             try
@@ -43,19 +50,16 @@ namespace Concentration
             return true;
         }
 
-        private const int card = 8;
-        private Image[] m_Images = new Image[card];
-
         private void SetImagesArray()
         {
-            m_Images[0] = Resources.green_banana;
-            m_Images[1] = Resources.green_banana;
-            m_Images[2] = Resources.yellow_banana;
-            m_Images[3] = Resources.yellow_banana;
-            m_Images[4] = Resources.red_banana;
-            m_Images[5] = Resources.red_banana;
-            m_Images[6] = Resources.blue_banana;
-            m_Images[7] = Resources.blue_banana;
+            images[0] = Resources.green_banana;
+            images[1] = Resources.green_banana;
+            images[2] = Resources.yellow_banana;
+            images[3] = Resources.yellow_banana;
+            images[4] = Resources.red_banana;
+            images[5] = Resources.red_banana;
+            images[6] = Resources.blue_banana;
+            images[7] = Resources.blue_banana;
         }
 
         public Form1()
@@ -68,14 +72,38 @@ namespace Concentration
         {
             PictureBox pictureBox = sender as PictureBox;
 
-            string picName = pictureBox.Name;
-            int k = int.Parse(picName.Substring(picName.Length - 1));
-
+            int k = int.Parse(pictureBox.Name.Substring(pictureBox.Name.Length - 1));
             k--;
+
             if (!IsMatching(pictureBox.Image, Resources.shawarma))
+            {
                 pictureBox.Image = Resources.shawarma;
+            }
+
             else
-                pictureBox.Image = m_Images[k];
+            {
+                pictureBox.Image = images[k];
+            }
+
+            if (!isFirst)
+            {
+                secondPictureBox = pictureBox;
+                timer.Start();
+            }
+
+            else
+            {
+                firstPictureBox = pictureBox;
+            }
+            isFirst = !isFirst;
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            firstPictureBox.Image = Resources.shawarma;
+            secondPictureBox.Image = Resources.shawarma;
+
+            timer.Stop();
         }
     }
 }

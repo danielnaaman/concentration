@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.card_8 = new System.Windows.Forms.PictureBox();
             this.card_4 = new System.Windows.Forms.PictureBox();
             this.card_7 = new System.Windows.Forms.PictureBox();
@@ -36,6 +37,7 @@
             this.card_3 = new System.Windows.Forms.PictureBox();
             this.card_2 = new System.Windows.Forms.PictureBox();
             this.card_1 = new System.Windows.Forms.PictureBox();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.card_8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.card_4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.card_7)).BeginInit();
@@ -48,8 +50,9 @@
             // 
             // card_8
             // 
+            this.card_8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.card_8.Image = global::Concentration.Properties.Resources.shawarma;
-            this.card_8.Location = new System.Drawing.Point(1230, 408);
+            this.card_8.Location = new System.Drawing.Point(1225, 417);
             this.card_8.Margin = new System.Windows.Forms.Padding(6);
             this.card_8.Name = "card_8";
             this.card_8.Size = new System.Drawing.Size(390, 373);
@@ -60,8 +63,9 @@
             // 
             // card_4
             // 
+            this.card_4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.card_4.Image = global::Concentration.Properties.Resources.shawarma;
-            this.card_4.Location = new System.Drawing.Point(1230, 23);
+            this.card_4.Location = new System.Drawing.Point(1225, 32);
             this.card_4.Margin = new System.Windows.Forms.Padding(6);
             this.card_4.Name = "card_4";
             this.card_4.Size = new System.Drawing.Size(390, 373);
@@ -72,8 +76,9 @@
             // 
             // card_7
             // 
+            this.card_7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.card_7.Image = global::Concentration.Properties.Resources.shawarma;
-            this.card_7.Location = new System.Drawing.Point(828, 408);
+            this.card_7.Location = new System.Drawing.Point(823, 417);
             this.card_7.Margin = new System.Windows.Forms.Padding(6);
             this.card_7.Name = "card_7";
             this.card_7.Size = new System.Drawing.Size(390, 373);
@@ -84,8 +89,9 @@
             // 
             // card_6
             // 
+            this.card_6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.card_6.Image = global::Concentration.Properties.Resources.shawarma;
-            this.card_6.Location = new System.Drawing.Point(426, 408);
+            this.card_6.Location = new System.Drawing.Point(421, 417);
             this.card_6.Margin = new System.Windows.Forms.Padding(6);
             this.card_6.Name = "card_6";
             this.card_6.Size = new System.Drawing.Size(390, 373);
@@ -96,8 +102,9 @@
             // 
             // card_5
             // 
+            this.card_5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.card_5.Image = global::Concentration.Properties.Resources.shawarma;
-            this.card_5.Location = new System.Drawing.Point(24, 408);
+            this.card_5.Location = new System.Drawing.Point(19, 417);
             this.card_5.Margin = new System.Windows.Forms.Padding(6);
             this.card_5.Name = "card_5";
             this.card_5.Size = new System.Drawing.Size(390, 373);
@@ -108,8 +115,9 @@
             // 
             // card_3
             // 
+            this.card_3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.card_3.Image = global::Concentration.Properties.Resources.shawarma;
-            this.card_3.Location = new System.Drawing.Point(828, 23);
+            this.card_3.Location = new System.Drawing.Point(823, 32);
             this.card_3.Margin = new System.Windows.Forms.Padding(6);
             this.card_3.Name = "card_3";
             this.card_3.Size = new System.Drawing.Size(390, 373);
@@ -120,8 +128,9 @@
             // 
             // card_2
             // 
+            this.card_2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.card_2.Image = global::Concentration.Properties.Resources.shawarma;
-            this.card_2.Location = new System.Drawing.Point(426, 23);
+            this.card_2.Location = new System.Drawing.Point(421, 32);
             this.card_2.Margin = new System.Windows.Forms.Padding(6);
             this.card_2.Name = "card_2";
             this.card_2.Size = new System.Drawing.Size(390, 373);
@@ -132,8 +141,9 @@
             // 
             // card_1
             // 
+            this.card_1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.card_1.Image = global::Concentration.Properties.Resources.shawarma;
-            this.card_1.Location = new System.Drawing.Point(24, 23);
+            this.card_1.Location = new System.Drawing.Point(19, 32);
             this.card_1.Margin = new System.Windows.Forms.Padding(6);
             this.card_1.Name = "card_1";
             this.card_1.Size = new System.Drawing.Size(390, 373);
@@ -142,12 +152,16 @@
             this.card_1.TabStop = false;
             this.card_1.Click += new System.EventHandler(this.PictureBox_Click);
             // 
+            // timer
+            // 
+            this.timer.Interval = 1024;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1637, 804);
+            this.ClientSize = new System.Drawing.Size(1638, 825);
             this.Controls.Add(this.card_8);
             this.Controls.Add(this.card_4);
             this.Controls.Add(this.card_7);
@@ -157,7 +171,9 @@
             this.Controls.Add(this.card_2);
             this.Controls.Add(this.card_1);
             this.Margin = new System.Windows.Forms.Padding(6);
+            this.MaximizeBox = false;
             this.Name = "Form1";
+            this.ShowIcon = false;
             this.Text = "Concentration";
             ((System.ComponentModel.ISupportInitialize)(this.card_8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.card_4)).EndInit();
@@ -181,6 +197,7 @@
         private System.Windows.Forms.PictureBox card_7;
         private System.Windows.Forms.PictureBox card_8;
         private System.Windows.Forms.PictureBox card_4;
+        private System.Windows.Forms.Timer timer;
     }
 }
 
