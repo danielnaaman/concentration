@@ -43,43 +43,39 @@ namespace Concentration
             return true;
         }
 
+        private const int card = 8;
+        private Image[] m_Images = new Image[card];
+
+        private void SetImagesArray()
+        {
+            m_Images[0] = Resources.green_banana;
+            m_Images[1] = Resources.green_banana;
+            m_Images[2] = Resources.yellow_banana;
+            m_Images[3] = Resources.yellow_banana;
+            m_Images[4] = Resources.red_banana;
+            m_Images[5] = Resources.red_banana;
+            m_Images[6] = Resources.blue_banana;
+            m_Images[7] = Resources.blue_banana;
+        }
+
         public Form1()
         {
             InitializeComponent();
+            SetImagesArray();
         }
 
         private void PictureBox_Click(object sender, EventArgs e)
         {
             PictureBox pictureBox = sender as PictureBox;
 
+            string picName = pictureBox.Name;
+            int k = int.Parse(picName.Substring(picName.Length - 1));
+
+            k--;
             if (!IsMatching(pictureBox.Image, Resources.shawarma))
-            {
                 pictureBox.Image = Resources.shawarma;
-            }
             else
-            {
-                switch (pictureBox.Name)
-                {
-                    case "card_1":
-                        pictureBox.Image = Resources.green_banana;
-                        break;
-                    case "card_2":
-                        pictureBox.Image = Resources.green_banana;
-                        break;
-                    case "card_3":
-                        pictureBox.Image = Resources.green_banana;
-                        break;
-                    case "card_4":
-                        pictureBox.Image = Resources.green_banana;
-                        break;
-                    case "card_5":
-                        pictureBox.Image = Resources.green_banana;
-                        break;
-                    case "card_6":
-                        pictureBox.Image = Resources.green_banana;
-                        break;
-                }
-            }
+                pictureBox.Image = m_Images[k];
         }
     }
 }
