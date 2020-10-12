@@ -63,9 +63,9 @@ namespace Concentration.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap blue_banana {
+        internal static System.Drawing.Bitmap Blue {
             get {
-                object obj = ResourceManager.GetObject("blue_banana", resourceCulture);
+                object obj = ResourceManager.GetObject("Blue", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Concentration.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap green_banana {
+        internal static System.Drawing.Bitmap Green {
             get {
-                object obj = ResourceManager.GetObject("green_banana", resourceCulture);
+                object obj = ResourceManager.GetObject("Green", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Concentration.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap red_banana {
+        internal static System.Drawing.Bitmap Red {
             get {
-                object obj = ResourceManager.GetObject("red_banana", resourceCulture);
+                object obj = ResourceManager.GetObject("Red", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace Concentration.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap shawarma {
+        internal static System.Drawing.Bitmap Reverse {
             get {
-                object obj = ResourceManager.GetObject("shawarma", resourceCulture);
+                object obj = ResourceManager.GetObject("Reverse", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace Concentration.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap yellow_banana {
+        internal static System.Drawing.Bitmap Yellow {
             get {
-                object obj = ResourceManager.GetObject("yellow_banana", resourceCulture);
+                object obj = ResourceManager.GetObject("Yellow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

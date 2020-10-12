@@ -50,16 +50,29 @@ namespace Concentration
             return true;
         }
 
+        private void Swap(int i, int j)
+        {
+            Image image = images[i];
+            images[i] = images[j];
+            images[j] = image;
+        }
+
         private void SetImagesArray()
         {
-            images[0] = Resources.green_banana;
-            images[1] = Resources.green_banana;
-            images[2] = Resources.yellow_banana;
-            images[3] = Resources.yellow_banana;
-            images[4] = Resources.red_banana;
-            images[5] = Resources.red_banana;
-            images[6] = Resources.blue_banana;
-            images[7] = Resources.blue_banana;
+            images[0] = Resources.Green;
+            images[1] = Resources.Green;
+            images[2] = Resources.Yellow;
+            images[3] = Resources.Yellow;
+            images[4] = Resources.Red;
+            images[5] = Resources.Red;
+            images[6] = Resources.Blue;
+            images[7] = Resources.Blue;
+
+            Random rnd = new Random();
+            for (int i = 0; i < card; i++)
+            {
+                Swap(i, rnd.Next(card));
+            }
         }
 
         public Form1()
@@ -75,9 +88,9 @@ namespace Concentration
             int k = int.Parse(pictureBox.Name.Substring(pictureBox.Name.Length - 1));
             k--;
 
-            if (!IsMatching(pictureBox.Image, Resources.shawarma))
+            if (!IsMatching(pictureBox.Image, Resources.Reverse))
             {
-                pictureBox.Image = Resources.shawarma;
+                pictureBox.Image = Resources.Reverse;
             }
 
             else
@@ -100,10 +113,23 @@ namespace Concentration
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            firstPictureBox.Image = Resources.shawarma;
-            secondPictureBox.Image = Resources.shawarma;
-
+            int countTrue = 0;
+            if (IsMatching(firstPictureBox.Image, secondPictureBox.Image))
+            {
+                firstPictureBox.Enabled = false;
+                secondPictureBox.Enabled = false;
+                countTrue += 2;
+            }
+            else
+            {
+                firstPictureBox.Image = Resources.Reverse;
+                secondPictureBox.Image = Resources.Reverse;
+            }
             timer.Stop();
+            if (countTrue == card)
+            {
+                MessageBox.Show("Winnnnnnnnnnnnnnnn!!!!");
+            }
         }
     }
 }
