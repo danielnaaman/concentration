@@ -50,7 +50,7 @@
             // 
             // timer
             // 
-            this.timer.Interval = 1024;
+            this.timer.Interval = 512;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // card_8
@@ -174,7 +174,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.ShowIcon = false;
-            this.Text = "Concentration";
+            this.Text = "Concentration (Daniel Naaman)";
             ((System.ComponentModel.ISupportInitialize)(this.card_8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.card_4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.card_7)).EndInit();

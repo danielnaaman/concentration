@@ -13,14 +13,15 @@ namespace Concentration
 {
     public partial class Form1 : Form
     {
-        private const int card = 8;
-        private Image[] images = new Image[card];
+        private int countCorrectGuesses = 0; // Count Correct Guesses
+        private const int card = 8; // Number. of Cards
+        private Image[] images = new Image[card]; // Array of Cards
 
-        private bool isFirst = true;
-        private PictureBox firstPictureBox;
-        private PictureBox secondPictureBox;
+        private bool isFirst = true; // Is (PictureBox) First Object
+        private PictureBox firstPictureBox; // First PictureBox
+        private PictureBox secondPictureBox; // Second PictureBox
 
-        public bool IsMatching(Image image1, Image image2)
+        public bool IsMatching(Image image1, Image image2) // Tested - Confirmed 
         {
             try
             {
@@ -48,16 +49,16 @@ namespace Concentration
             }
 
             return true;
-        }
+        } 
 
-        private void Swap(int i, int j)
+        private void Swap(int i, int j) // Tested - Confirmed 
         {
             Image image = images[i];
             images[i] = images[j];
             images[j] = image;
-        }
+        } 
 
-        private void SetImagesArray()
+        private void SetImagesArray() // Tested - Confirmed 
         {
             images[0] = Resources.Green;
             images[1] = Resources.Green;
@@ -75,13 +76,13 @@ namespace Concentration
             }
         }
 
-        public Form1()
+        public Form1() // Constructor - NaN 
         {
             InitializeComponent();
             SetImagesArray();
         }
 
-        private void PictureBox_Click(object sender, EventArgs e)
+        private void PictureBox_Click(object sender, EventArgs e) // Tested - Confirmed 
         {
             PictureBox pictureBox = sender as PictureBox;
 
@@ -113,22 +114,25 @@ namespace Concentration
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            int countTrue = 0;
             if (IsMatching(firstPictureBox.Image, secondPictureBox.Image))
             {
                 firstPictureBox.Enabled = false;
                 secondPictureBox.Enabled = false;
-                countTrue += 2;
+                countCorrectGuesses += 2;
             }
+
             else
             {
                 firstPictureBox.Image = Resources.Reverse;
                 secondPictureBox.Image = Resources.Reverse;
             }
+
             timer.Stop();
-            if (countTrue == card)
+
+            if (countCorrectGuesses == card)
             {
-                MessageBox.Show("Winnnnnnnnnnnnnnnn!!!!");
+                Form2 winForm = new Form2();
+                winForm.Show();
             }
         }
     }
